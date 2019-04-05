@@ -1,0 +1,14 @@
+<ul class="projects">
+  <li *ngFor="let project of projects"
+    [class.selected]="project === selectedProject"
+    (click)="onSelect(project)">
+   <!-- <span class="badge">{{hero.id}}</span>--> {{project.name}}
+  </li>
+</ul>
+<!--<div *ngIf="selectedProject">
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedProject.name" placeholder="name"/>
+    </label>
+  </div>
+</div>-->
