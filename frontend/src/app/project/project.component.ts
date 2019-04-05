@@ -17,7 +17,7 @@ export class ProjectComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.selectedProject =  PROJECTS[0];
+    this.selectedProject  =  PROJECTS[0];
   }
 
   projects = PROJECTS;
