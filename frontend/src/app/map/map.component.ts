@@ -35,7 +35,7 @@ export class MapComponent implements OnInit {
 
     var style = new Style({
       fill: new Fill({
-        color: 'rgb(255, 255, 198)'
+        color: 'rgb(255, 55, 198)'
       }),
       stroke: new Stroke({
         color: 'rgb(223, 242, 255)',
