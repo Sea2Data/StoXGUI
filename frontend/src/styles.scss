@@ -1,0 +1,109 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/hi-theme-bootstrap/hi-bootstrap.scss';
+
+@import 'assets/hi-theme-primeng/hi-primeng.scss';
+
+
+.title{
+    margin-top: 1rem;
+    font-weight:bold;
+}
+
+
+
+/**
+ * SETUP DATA-STATUS THEMING
+ * -----------------------------------------------------------------------------------------------
+ */
+$available:#83ca5d;
+$missing: #ff7d7d;
+$waiting: #f9d457;
+$unknown: #ad75cc;
+$nodata: #acacac;
+
+.datastatus-txt.available{ color: $available; }
+.datastatus-bg.available{ background-color: $available !important; color: rgba(0,0,0,0.4); }
+.datastatus-txt.missing, .datastatus-txt.unavailable{color: $missing; }
+.datastatus-bg.missing, .datastatus-bg.unavailable{ background-color: $missing !important; color: rgba(0,0,0,0.4); }
+.datastatus-txt.waiting{ color: $waiting; }
+.datastatus-bg.waiting{ background-color: $waiting !important; color: rgba(0,0,0,0.4); }
+.datastatus-txt.unknown{ color: $unknown; }
+.datastatus-bg.unknown{ background-color: $unknown !important; color: rgba(0,0,0,0.4); }
+.datastatus-txt.nodata, .datastatus-txt.notexist{ color: $nodata; }
+.datastatus-bg.nodata, .datastatus-bg.notexist{ background-color: $nodata !important; color: rgba(0,0,0,0.4); }
+
+
+
+/**
+ * SETUP DATA-TYPE THEMING
+ * ----------------------------------------------------------------------------------------------- 
+ */
+.datatype.cruise, .datatype.CRUISE{
+    color: #67868e;
+}
+.datatype-bg.cruise, .datatype-bg.CRUISE{
+    background-color: #67868e;
+}
+.active .datatype.cruise, .active .datatype.CRUISE, 
+.ui-state-highlight .datatype.cruise, .ui-state-highlight .datatype.CRUISE {
+    color: white;
+}
+
+.datatype.echo, .datatype.ECHO, .datatype.ECHOSOUNDER{
+    color: #bd5175;
+}
+.datatype-bg.echo, .datatype-bg.ECHO, .datatype-bg.ECHOSOUNDER{
+    background-color: #bd5175;
+}
+.active .datatype.echo, .active .datatype.ECHO, .active .datatype.ECHOSOUNDER, 
+.ui-state-highlight .datatype.echo, .ui-state-highlight .datatype.ECHO, .ui-state-highlight .datatype.ECHOSOUNDER{
+    color: white;
+}
+
+.datatype.biotic, .datatype.BIOTIC{
+    color: #A0CD16;
+}
+.datatype-bg.biotic, .datatype-bg.BIOTIC{
+    background-color: #A0CD16;
+}
+.active .datatype.biotic, .active .datatype.BIOTIC, 
+.ui-state-highlight .datatype.biotic, .ui-state-highlight .datatype.BIOTIC {
+    color: white;
+}
+
+.datatype.ctd, .datatype.CTD{
+    color: #ca4c29;
+}
+.datatype-bg.ctd, .datatype-bg.CTD{
+    background-color: #ca4c29;
+}
+.active .datatype.ctd, .active .datatype.CTD, 
+.ui-state-highlight .datatype.ctd, .ui-state-highlight .datatype.CTD {
+    color: white;
+}
+
+.datatype.chemistry, .datatype.chem, .datatype.CHEMISTRY, .datatype.CHEM{
+    color: #3caf7e;
+}
+.datatype-bg.chemistry, .datatype-bg.chem, .datatype-bg.CHEMISTRY, .datatype-bg.CHEM{
+    background-color: #3caf7e;
+}
+.active .datatype.chemistry, .active .datatype.chem, .active .datatype.CHEMISTRY, .active .datatype.CHEM, 
+.ui-state-highlight .datatype.chemistry, .ui-state-highlight .datatype.chem, .ui-state-highlight .datatype.CHEMISTRY, .ui-state-highlight .datatype.CHEM {
+    color: white;
+}
+
+.datatype.all, .datatype.ALL{
+    color: rgb(78, 78, 78);
+}
+.datatype-bg.all, .datatype-bg.ALL{
+    background-color: rgb(78, 78, 78);
+}
+.active .datatype.all, .active .datatype.ALL, 
+.ui-state-highlight .datatype.all, .ui-state-highlight .datatype.ALL {
+    color: white;
+}
+
+
+

@@ -1,0 +1,30 @@
+@import 'variables';
+
+$blue:  #336699 !default;
+$cyan:  #00b5d1 !default;
+$red:     #EC4A42 !default;
+$orange:  #f18b2b !default;
+$yellow:  #F7C53A !default;
+$green:   #AADD3E !default;
+
+$hi-blue:  #31377F !default;
+
+
+
+
+
+
+
+
+$borderRadius:0px;
+
+$menuitemTextColor: #FFF;
+$menuitemHoverTextColor: #FFF;
+$menuitemHoverBgColor:$blue;
+
+@import 'menu';
+@import 'designer/_core';
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeng/resources/themes/nova-light/theme.css";
+

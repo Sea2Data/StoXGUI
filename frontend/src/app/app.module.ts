@@ -8,17 +8,17 @@ import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
   declarations: [
     HomeComponent,
     FileUploadComponent,
     ProjectComponent,
     MapComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [HomeComponent]
+  bootstrap: [HomeComponent],
+  providers: []
 })
 export class AppModule { }

@@ -1,17 +1,61 @@
-<div>te st </div>
-<h1>
- {{title}}
-</h1>
-<div class="p-grid middle-area">
-  <div class="p-col-fixed stox-pane-left">
-    <!--<div class="box">100px</div>-->
-    <div class="box stox-pane-project"><app-project></app-project></div>
-    <div class="box stox-pane-process">process</div>
+<nav class="navbar navbar-dark bg-primary d-flex justify-content-between" style="z-index:100;background-color: blue">
+  <a routerLink="" class="hi-logo logo-sm">
+    <img src="assets/hi-theme-bootstrap/hi-logo-hvit-norsk.svg" alt="Logo">
+    <span>{{title}}</span>
+  </a>
+  <!--
+
+    <div class="menu-container">
+        <p-menubar [model]="items">
+            <div>
+                <a *ngIf="!authenticated" href="/apps/datasetexplorer/v2/request/auth/login?redirectTo={{redirecturl}}" class="btn btn-info">
+                    Login</a>
+                <a *ngIf="authenticated" href="/apps/datasetexplorer/v2/request/auth/logout" class="btn btn-danger">
+                    Logout</a>
+            </div>
+        </p-menubar>
+    </div>-->
+</nav>
+
+<div class="container-fluid text-left">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <app-project></app-project>
+      <ul class="list-unstyled">
+        <li><a class="btn-block btn-primary  text-left">item 1</a></li>
+        <li><button class="btn btn-block btn-outline-dark" tabindex="1">item 2</button></li>
+        <li><button class="btn btn-block btn-outline-dark" tabindex="3">item 3</button></li>
+        <li><button class="btn btn-block btn-outline-dark" tabindex="2">item 4</button></li>
+        <li><button class="btn btn-block btn-outline-dark">item 5</button></li>
+      </ul>
+      <ul class="list-unstyled">
+        <li><a class="btn btn-block btn-primary  text-left">item 1</a></li>
+        <li><button class="btn btn-block btn-secondary">item 2</button></li>
+        <li><button class="btn btn-block btn-secondary">item 3</button></li>
+        <li><button class="btn btn-block btn-secondary">item 4</button></li>
+        <li><button class="btn btn-block btn-secondary">item 5</button></li>
+      </ul>
+    </div>
+    <div class="col" style="background: rgb(158, 160, 247); padding: 10px">
+      <app-map class="stox-map"></app-map>
+      <!--<div class="border border-warning text-danger bg-primary">ERROR: !</div>
+              <button class="btn btn-lg btn-outline-danger">WARNING! this is dangerous</button>
+              <button class="btn btn-sm btn-outline-info">info</button>-->
+    </div>
+    <div class="col-xs-12 col-md-3" style="background: rgb(225, 243, 225)">
+      RIGHT MENU
+    </div>
   </div>
-  <div class="p-col stox-pane-map">
-    <div class="box"><app-map class="stox-map"></app-map></div>
-  </div>
-  <div class="p-col-fixed stox-pane-parameters">
-    <div class="box">100px</div>
-  </div>
-</div>
+  <!--  </div>
+   <div class="p-grid middle-area">
+     <div class="p-col-fixed stox-pane-left">
+       <div class="box stox-pane-project"><app-project></app-project></div>
+       <div class="box stox-pane-process">process</div>
+     </div>
+     <div class="p-col stox-pane-map">
+       <div class="box"><app-map class="stox-map"></app-map></div>
+     </div>
+     <div class="p-col-fixed stox-pane-parameters">
+       <div class="box">100px</div>
+     </div>
+   </div>-->

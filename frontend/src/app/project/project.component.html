@@ -1,16 +1,18 @@
+<div class="list-group">
+  <div class="list-group-item-info text-center">
+    Projects
+  </div>
+  <div *ngFor="let project of projects" [class.active]="project === selectedProject"
+    class="list-group-item " (click)="onSelect(project)">{{project.name}}
+  </div>
+</div>
+
+<!-- 
 <h3 id="">Projects</h3>
 <ul class="projects">
   <li *ngFor="let project of projects"
     [class.selected]="project === selectedProject"
     (click)="onSelect(project)">
-   <!-- <span class="badge">{{hero.id}}</span>--> {{project.name}}
+   {{project.name}}
   </li>
-</ul>
-<!--<div *ngIf="selectedProject">
-  <div>
-
-    <label>name:
-      <input [(ngModel)]="selectedProject.name" placeholder="name"/>
-    </label>
-  </div>
-</div>-->
+</ul>  -->
