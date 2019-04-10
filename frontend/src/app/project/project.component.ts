@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project';
+import { ProjectService } from '../project.service';
 
-const PROJECTS: Project[] = [
-  { name: 'Gytetokt 2004' },
-  { name: 'Tobis 2006' }
-];
+
 
 @Component({
   selector: 'app-project',
@@ -14,16 +12,26 @@ const PROJECTS: Project[] = [
 
 export class ProjectComponent implements OnInit {
 
-  constructor() { }
+  projects: Project[];
 
-  ngOnInit() {
-    this.selectedProject  =  PROJECTS[0];
+  constructor(private projectService: ProjectService) {
   }
 
-  projects = PROJECTS;
-  selectedProject: Project;
+  ngOnInit() {
+    this.getProjects();
+    this.onSelect(this.projects[0]);
+  }
 
   onSelect(project: Project): void {
-    this.selectedProject = project;
+    this.projectService.setSelectedProject(project);
+  }
+
+  getProjects(): void {
+    this.projectService.getProjects()
+      .subscribe(projects => this.projects = projects);
+  }
+
+  getSelectedProject(): Project {
+    return this.projectService.getSelectedProject();
   }
 }

@@ -6,6 +6,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { ProjectComponent } from './project/project.component';
 import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
+import { ProcessComponent } from './process/process.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     FileUploadComponent,
     ProjectComponent,
-    MapComponent
+    MapComponent,
+    ProcessComponent
   ],
   bootstrap: [HomeComponent],
   providers: []

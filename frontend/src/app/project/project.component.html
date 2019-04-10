@@ -1,9 +1,9 @@
 <div class="list-group">
-  <div class="list-group-item-info text-center">
+  <div class="list-group-item-info py-1 text-center text-info h6 text-uppercase">
     Projects
   </div>
-  <div *ngFor="let project of projects" [class.active]="project === selectedProject"
-    class="list-group-item " (click)="onSelect(project)">{{project.name}}
+  <div *ngFor="let project of projects" [class.active]="project === getSelectedProject()"
+    class="list-group-item py-0" (click)="onSelect(project)">{{project.name}}
   </div>
 </div>
 
