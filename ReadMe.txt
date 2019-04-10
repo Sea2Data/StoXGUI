@@ -1,4 +1,4 @@
-StoX GUI as a WEB application
+StoX GUI as a WEB application.
 
 The backend
 StoX is a project-oriented software package for backend modeling. StoX must be able to run offline locally at pc without network.
