@@ -7,11 +7,13 @@ import { ProjectComponent } from './project/project.component';
 import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
 import { ProcessComponent } from './process/process.component';
+import { TabViewModule } from 'primeng/primeng';
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    TabViewModule
   ],
   declarations: [
     HomeComponent,

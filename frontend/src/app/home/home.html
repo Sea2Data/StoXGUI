@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-primary d-flex justify-content-between" style="z-index:100;background-color: blue">
   <a routerLink="" class="hi-logo logo-sm">
-     <img src="assets/hi-theme-bootstrap/hi-logo-hvit-norsk.svg" alt="Logo">
+    <img src="assets/hi-theme-bootstrap/hi-logo-hvit-norsk.svg" alt="Logo">
     <span>{{title}}</span>
   </a>
   <!--
@@ -15,26 +15,35 @@
         </p-menubar>
     </div>-->
 </nav>
+<!-- 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb py-1 menu-breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Workspace</a></li>
+   <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav> -->
 
 <div class="container-fluid text-left">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-3">
       <app-project></app-project>
       <br>
-      <ul class="list-unstyled">
+      <app-process></app-process>
+      <!-- <ul class="list-unstyled">
         <li><a class="btn-block btn-primary  text-left">item 1</a></li>
         <li><button class="btn btn-block btn-outline-dark" tabindex="1">item 2</button></li>
         <li><button class="btn btn-block btn-outline-dark" tabindex="3">item 3</button></li>
         <li><button class="btn btn-block btn-outline-dark" tabindex="2">item 4</button></li>
         <li><button class="btn btn-block btn-outline-dark">item 5</button></li>
-      </ul>
-      <ul class="list-unstyled">
+      </ul> -->
+      <!-- <ul class="list-unstyled">
         <li><a class="btn btn-block btn-primary  text-left">item 1</a></li>
         <li><button class="btn btn-block btn-secondary">item 2</button></li>
         <li><button class="btn btn-block btn-secondary">item 3</button></li>
         <li><button class="btn btn-block btn-secondary">item 4</button></li>
-        <li><button class="btn btn-block btn-secondary">item 5</button></li>
-      </ul>
+        <li><button class="btn btn-block btn-secondary">item 5</button></li> 
+      </ul>-->
     </div>
     <div class="col" style="background: rgb(158, 160, 247); padding: 10px">
       <app-map class="stox-map"></app-map>
@@ -46,7 +55,8 @@
       RIGHT MENU
     </div>
   </div>
-  <!--  </div>
+</div>
+<!--
    <div class="p-grid middle-area">
      <div class="p-col-fixed stox-pane-left">
        <div class="box stox-pane-project"><app-project></app-project></div>
