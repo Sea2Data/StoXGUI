@@ -12,26 +12,10 @@ import { ProjectService } from '../project.service';
 
 export class ProjectComponent implements OnInit {
 
-  projects: Project[];
-
-  constructor(private projectService: ProjectService) {
+  constructor(private ps: ProjectService) {
   }
 
   ngOnInit() {
-    this.getProjects();
-    this.onSelect(this.projects[0]);
   }
 
-  onSelect(project: Project): void {
-    this.projectService.setSelectedProject(project);
-  }
-
-  getProjects(): void {
-    this.projectService.getProjects()
-      .subscribe(projects => this.projects = projects);
-  }
-
-  getSelectedProject(): Project {
-    return this.projectService.getSelectedProject();
-  }
 }
