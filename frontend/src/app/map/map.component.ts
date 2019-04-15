@@ -31,11 +31,11 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.source = new OlXYZ({
       url: 'http://tile.osm.org/{z}/{x}/{y}.png'
-    });
+    }); 
 
     var style = new Style({
       fill: new Fill({
-        color: 'rgb(255, 55, 198)'
+        color: 'rgb(255, 229, 204)'
       }),
       stroke: new Stroke({
         color: 'rgb(223, 242, 255)',
@@ -44,11 +44,11 @@ export class MapComponent implements OnInit {
     });
     this.vector = new VectorLayer({
       source: new VectorSource({
-        url: 'assets/world-110m.json',
+        url: 'assets/world-110m.1.json',
         format: new TopoJSON({
           // don't want to render the full world polygon (stored as 'land' layer),
           // which repeats all countries
-          layers: ['countries']
+          layers: ['europe']
         }),
         overlaps: false
       }),
