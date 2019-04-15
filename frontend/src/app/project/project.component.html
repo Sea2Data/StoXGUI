@@ -1,9 +1,11 @@
-<div class="list-group">
+<div class="list-group" style="height: 100%">
   <div class="list-group-item-heading py-1 text-center text-primary h6 text-uppercase">
     Projects
   </div>
-  <div *ngFor="let project of ps.getProjects()" [class.active]="project === ps.getSelectedProject()"
-    class="list-group-item py-0" (click)="ps.setSelectedProject(project)">{{project.name}}
+  <div style="overflow-y:scroll; height:100%">
+    <div *ngFor="let project of ps.getProjects()" [class.active]="project === ps.getSelectedProject()"
+      class="list-group-item py-0" (click)="ps.setSelectedProject(project)">{{project.name}}
+    </div>
   </div>
 </div>
 

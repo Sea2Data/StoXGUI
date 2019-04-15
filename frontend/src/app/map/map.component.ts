@@ -22,9 +22,9 @@ import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 export class MapComponent implements OnInit {
 
   map: OlMap;
-  //source: OlXYZ;
-  //toposource: VectorSource;
-  //layer: OlTileLayer;
+  // source: OlXYZ;
+  // toposource: VectorSource;
+  // layer: OlTileLayer;
   vector: VectorLayer;
   view: OlView;
 
