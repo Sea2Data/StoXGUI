@@ -6,13 +6,13 @@ import VectorSource from 'ol/source/Vector';
 import OlTileLayer from 'ol/layer/Tile';
 import OlView from 'ol/View';
 import TopoJSON from 'ol/format/TopoJSON';
+import GeoJSON from 'ol/format/GeoJSON';
 import {Vector as VectorLayer} from 'ol/layer';
 import { DoCheck } from '@angular/core';
 
 import { fromLonLat } from 'ol/proj';
 import { Fill, Stroke, Style } from 'ol/style';
 import { mapToMapExpression } from '@angular/compiler/src/render3/util';
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -22,23 +22,23 @@ import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 export class MapComponent implements OnInit {
 
   map: OlMap;
-  source: OlXYZ;
-  toposource: VectorSource;
-  layer: OlTileLayer;
+  //source: OlXYZ;
+  //toposource: VectorSource;
+  //layer: OlTileLayer;
   vector: VectorLayer;
   view: OlView;
 
   ngOnInit() {
-    this.source = new OlXYZ({
+    /*this.source = new OlXYZ({
       url: 'http://tile.osm.org/{z}/{x}/{y}.png'
-    });
+    });*/
 
     var style = new Style({
       fill: new Fill({
-        color: 'rgb(255, 55, 198)'
+        color: 'rgb(255, 255, 255)'
       }),
       stroke: new Stroke({
-        color: 'rgb(223, 242, 255)',
+        color: 'rgb(210, 236, 249)',
         width: 1
       })
     });
@@ -56,9 +56,9 @@ export class MapComponent implements OnInit {
     });
 
 
-    this.layer = new OlTileLayer({
+    /*this.layer = new OlTileLayer({
       source: this.source
-    });
+    });*/
 
     this.view = new OlView({
       center: fromLonLat([6.661594, 50.433237]),
@@ -73,3 +73,12 @@ export class MapComponent implements OnInit {
   }
 
 }
+/*
+convert text delimited file with wkt geometry to arced topojson file
+Use QGIS/MapShaper
+1. add layer->add delimited text layer.
+2. rightclick layer->export->save features as. choose Esri Shape file
+MapShaper
+Read shape file into https://mapshaper.org/
+export as geojson or topojson.
+*/
