@@ -44,11 +44,11 @@ export class MapComponent implements OnInit {
     });
     this.vector = new VectorLayer({
       source: new VectorSource({
-        url: 'assets/world-110m.json',
+        url: 'assets/world-110m.1.json',
         format: new TopoJSON({
           // don't want to render the full world polygon (stored as 'land' layer),
           // which repeats all countries
-          layers: ['countries']
+          layers: ['europe']
         }),
         overlaps: false
       }),
