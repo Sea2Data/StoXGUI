@@ -1,4 +1,36 @@
-<p-tabView>
+<ngb-tabset type="pills">
+    <ngb-tab style="height: 1.2em;" 
+    *ngFor="let tab of ['Baseline', 'Statistics', 'Reports']">
+
+      <ng-template ngbTabTitle>
+          <span>{{tab}}</span>
+      </ng-template>
+      <ng-template ngbTabContent>Content of {{tab}}</ng-template>
+  </ngb-tab>
+  <!-- <ngb-tab>
+    <ng-template ngbTabTitle><b>Baseline</b></ng-template>
+    <ng-template ngbTabContent>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Statistics</b></ng-template>
+    <ng-template ngbTabContent>
+      <div class="list-group">
+        <div class="list-group-item-heading py-1 text-center text-primary h6 text-uppercase">
+          BASELINE
+        </div>
+        <div *ngFor="let process of ps.getProcesses('report')" class="list-group-item py-0">{{process.name}}
+        </div>
+      </div>
+      </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Report</b></ng-template>
+    <ng-template ngbTabContent>
+    </ng-template>
+  </ngb-tab> -->
+</ngb-tabset>
+<!-- <p-tabView>
   <p-tabPanel header="Baseline">
   </p-tabPanel>
   <p-tabPanel header="Statistics">
@@ -12,4 +44,4 @@
   </p-tabPanel>
   <p-tabPanel header="Report">
   </p-tabPanel>
-</p-tabView>
+</p-tabView> -->

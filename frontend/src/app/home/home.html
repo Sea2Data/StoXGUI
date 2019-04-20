@@ -1,13 +1,14 @@
-<nav class="navbar navbar-dark bg-primary d-flex justify-content-between" style="z-index:100;background-color: blue">
+<nav class="navbar navbar-dark bg-primary d-flex justify-content-between" 
+style="height:3rem; z-index:100">
   <a routerLink="" class="hi-logo logo-sm">
     <img src="assets/hi-theme-bootstrap/hi-logo-hvit-norsk.svg" alt="Logo">
     <span>{{title}}</span>
   </a>
 </nav>
-<div style="width: 100%; height: 55em;">
-	<as-split direction="horizontal">
-		<as-split-area size="25">
-			<as-split direction="vertical">
+<div style="height: calc(100vh - 3rem);">
+	<as-split direction="horizontal" gutterSize=6>
+		<as-split-area size="20">
+			<as-split direction="vertical" gutterSize=6>
 				<as-split-area size=30 style="overflow:hidden">
 					<app-project></app-project>
 				</as-split-area>
@@ -16,22 +17,20 @@
 				</as-split-area>
 			</as-split>
 		</as-split-area>
-		<as-split-area size="50">
-			<as-split direction="vertical">
-				<as-split-area size="75" style=" overflow:hidden;">
-          <div  style="background: rgb(176, 203, 222); padding: 1px;">
-            <app-map class="stox-map"></app-map>
-          </div>
+		<as-split-area size="60">
+			<as-split direction="vertical" gutterSize=6>
+				<as-split-area size="75">
+          <app-map class="map"></app-map>
 				</as-split-area>
 				<as-split-area size="25">
 					<p>Output tab panes</p>
 				</as-split-area>
 			</as-split>
 		</as-split-area>
-		<as-split-area size="25">
-			<as-split direction="vertical">
+		<as-split-area size="20">
+			<as-split direction="vertical" gutterSize=6>
 				<as-split-area size="50">
-					<p>Parameters</p>
+           <app-parameter></app-parameter>
 				</as-split-area>
 				<as-split-area size="50">
 					<p>Parameter description</p>
