@@ -53,7 +53,7 @@ export class MapComponent implements OnInit {
         width: 1
       })
     });
-    let myProjectionName = 'EPSG:9820';
+    let myProjectionName = 'ESRI:54003';
     const proj4 = (proj4x as any).default;
     // Two example-projections (2nd is included anyway)
 
@@ -88,7 +88,7 @@ export class MapComponent implements OnInit {
     this.view = new OlView({
       center: fromLonLat([16.661594, 60.433237], proj),
       projection: proj,
-      zoom: 1.9,
+      zoom: 3.9,
     });
 
     this.map = new OlMap({
@@ -98,9 +98,21 @@ export class MapComponent implements OnInit {
       controls: []
     });
 
+    // var f1 = new Feature({ id: 's1', geometry: new Point(fromLonLat([4, 60], proj)) });
+    // var f2 = new Feature({ id: 's2', geometry: new Point(fromLonLat([3, 59], proj)) });
 
-    var f1 = new Feature({ id: 's1', geometry: new Point(fromLonLat([4, 60], proj)) });
-    var f2 = new Feature({ id: 's2', geometry: new Point(fromLonLat([3, 59], proj)) });
+    var Ftrs: Feature[] = [];// = new Array();
+
+    for (var i = 0; i < 120000; i++) {
+      var lon = 0 + Math.random() * 10;
+      var lat = 55 + Math.random() * 20;
+      var f = new Feature({ geometry: new Point(fromLonLat([lon, lat], proj)) });
+      f.setId('s' + i); 
+      f.setProperties({'description': s + " description"});
+      Ftrs[i] = f;
+      // console.log( Ftrs[i].getId());
+    }
+
     var stroke = new Stroke({ color: 'black', width: 2 });
     var fill = new Fill({ color: 'blue' });
 
@@ -109,13 +121,13 @@ export class MapComponent implements OnInit {
         fill: fill,
         stroke: stroke,
         points: 4,
-        radius: 10,
+        radius: 4,
         angle: Math.PI / 4
       })
     });
     this.map.addLayer(new VectorLayer({
       source: new VectorSource({
-        features: [f1, f2]
+        features: Ftrs
       }),
       style: s,
       selectable: true
@@ -129,17 +141,18 @@ export class MapComponent implements OnInit {
 
       },
       filter: function (feature, layer) {
-        console.log(feature.getId());
         return true/* some logic on a feature and layer to decide if it should be selectable; return true if yes */;
       },
     });
     this.map.addInteraction(selectClick);
-    selectClick.on('select', function (e) {
-      console.log(e.selected);
+    selectClick.on('select', (e) => {
+      if (e.selected.length > 0) {
+        console.log(e.selected[0].getId() + " description " + e.selected[0].get('description'));//e.selected.getId());  
+      }
     });
   }
   onClick() {
-    console.log('OnResize');
+
   }
 
   onResized(event: ResizedEvent) {
