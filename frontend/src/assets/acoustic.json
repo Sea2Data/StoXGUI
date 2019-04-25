@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "2007203/70003",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0,
+          59
+        ]
+      },
+      "properties": {
+        "description": "test1",
+        "hascatch": "true"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2007203/70004",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1,
+          60
+        ]
+      },
+      "properties": {
+        "description": "test2",
+        "hascatch": "false"
+      }
+    }
+  ]
+}
