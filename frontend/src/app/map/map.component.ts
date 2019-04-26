@@ -131,7 +131,7 @@ export class MapComponent implements OnInit {
         url: './assets/acoustic.json'
       }),
       style: s,
-      selectable: true
+      selectable: true 
     }));
     //this.map.on('click', this.onClick());
     var selectClick = new Select({
