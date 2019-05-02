@@ -13,7 +13,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ParameterComponent } from './parameter/parameter.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AngularResizedEventModule } from 'angular-resize-event';
-
+import {AccordionModule} from 'primeng/accordion';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { TableModule } from 'primeng/components/table/table';
 @NgModule({
   imports: [
     BrowserModule,
@@ -22,7 +24,10 @@ import { AngularResizedEventModule } from 'angular-resize-event';
     NgbModule,
     AngularSplitModule.forRoot(),
     AngularResizedEventModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    AccordionModule, 
+    BrowserAnimationsModule,
+    TableModule
   ],
   declarations: [
     HomeComponent,

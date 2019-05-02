@@ -1,25 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-parameter',
   templateUrl: './parameter.component.html',
-  styleUrls: ['./parameter.component.scss']
+  styleUrls: ['./parameter.component.scss'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class ParameterComponent implements OnInit {
-  columnDefs = [
-    {headerName: 'Make', field: 'make' },
-    {headerName: 'Model', field: 'model' },
-    {headerName: 'Price', field: 'price'}
-];
+  cols: any[];
 
 rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxter', price: 72000 }
+    { name: 'Process name', value: 'ReadBioticXML'},
+    { name: 'Function', value: 'ReadBioticXML'},
+    { name: 'Enabled', value: 'true' }
 ];
   constructor() { }
 
   ngOnInit() {
+    this.cols = [
+      { field: 'name', header: 'Name', width: '50%' },
+      { field: 'value', header: 'Value', width: '50%' }
+    ];
   }
 
 }

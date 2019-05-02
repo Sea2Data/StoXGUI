@@ -18,7 +18,7 @@ import { register } from 'ol/proj/proj4';
 import * as proj4x from 'proj4';
 
 import { add as addProjection } from 'ol/proj/projection';
-import { Fill, Stroke, Style, RegularShape } from 'ol/style';
+import { Fill, Stroke, Style, RegularShape } from 'ol/style'; 
 import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 
 import { click, singleClick, shiftKeyOnly } from 'ol/events/condition';
@@ -131,7 +131,7 @@ export class MapComponent implements OnInit {
 
     var Ftrs: Feature[] = [];// = new Array();
 
-    for (var i = 0; i < 120000; i++) {
+    for (var i = 0; i < 12; i++) {
       var lon = 0 + Math.random() * 10;
       var lat = 55 + Math.random() * 20;
       var f = new Feature({ geometry: new Point(fromLonLat([lon, lat], proj)) });
