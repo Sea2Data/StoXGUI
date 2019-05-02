@@ -56,6 +56,7 @@ export class MapComponent implements OnInit {
         width: 1
       })
     });
+    let myProjectionName = 'EPSG:9820';
     const proj4 = (proj4x as any).default;
     // Two example-projections (2nd is included anyway)
 
@@ -128,7 +129,7 @@ export class MapComponent implements OnInit {
 
     // var f1 = new Feature({ id: 's1', geometry: new Point(fromLonLat([4, 60], proj)) });
     // var f2 = new Feature({ id: 's2', geometry: new Point(fromLonLat([3, 59], proj)) });
-
+    /*
     var Ftrs: Feature[] = [];// = new Array();
 
     for (var i = 0; i < 12; i++) {
@@ -139,7 +140,7 @@ export class MapComponent implements OnInit {
       f.setProperties({'description': s + " description"});
       Ftrs[i] = f;
       // console.log( Ftrs[i].getId());
-    }
+    }  */
 
     var stroke = new Stroke({ color: 'black', width: 2 });
     var fill = new Fill({ color: 'blue' });
@@ -155,10 +156,11 @@ export class MapComponent implements OnInit {
     });
     this.map.addLayer(new VectorLayer({
       source: new VectorSource({
-        features: Ftrs
+        format: new GeoJSON(),
+        url: './assets/acoustic.json'
       }),
       style: s,
-      selectable: true
+      selectable: true 
     }));
     //this.map.on('click', this.onClick());
     var selectClick = new Select({
@@ -185,6 +187,7 @@ export class MapComponent implements OnInit {
     this.map.addInteraction(selectClick);
     selectClick.on('select', (e) => {
       if (e.selected.length > 0) {
+        // console.log("Id " + e.selected[0].getId());
         console.log(e.selected[0].getId() + " description " + e.selected[0].get('description'));//e.selected.getId());  
       }
     });
