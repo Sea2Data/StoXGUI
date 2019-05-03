@@ -18,15 +18,17 @@ import { register } from 'ol/proj/proj4';
 import * as proj4x from 'proj4';
 
 import { add as addProjection } from 'ol/proj/projection';
-import { Fill, Stroke, Style, RegularShape } from 'ol/style'; 
+import { Fill, Stroke, Style, RegularShape } from 'ol/style';
 import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 
 import { click, singleClick, shiftKeyOnly } from 'ol/events/condition';
 import Select from 'ol/interaction/Select';
 import { ResizedEvent } from 'angular-resize-event';
-import {defaults as defaultControls} from 'ol/control';
+import { defaults as defaultControls } from 'ol/control';
 import MousePosition from 'ol/control/MousePosition';
-import {createStringXY} from 'ol/coordinate';
+import { createStringXY } from 'ol/coordinate';
+
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-map',
@@ -42,6 +44,8 @@ export class MapComponent implements OnInit {
   // layer: OlTileLayer;
   vector: VectorLayer;
   view: OlView;
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     /*this.source = new OlXYZ({
@@ -154,14 +158,21 @@ export class MapComponent implements OnInit {
         angle: Math.PI / 4
       })
     });
-    this.map.addLayer(new VectorLayer({
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: './assets/acoustic.json'
-      }),
-      style: s,
-      selectable: true 
-    }));
+    this.dataService.getstations().toPromise().then(
+      (st: any) => {
+
+        this.map.addLayer(new VectorLayer({
+          source: new VectorSource({
+            format: new GeoJSON(),
+            features: (new GeoJSON).readFeatures(JSON.parse(st), {
+              defaultDataProjection: 'EPSG:4326',
+              featureProjection: proj
+            })
+          }),
+          style: s,
+          selectable: true
+        }));
+      });
     //this.map.on('click', this.onClick());
     var selectClick = new Select({
       //condition: (mapBrowserEvent) => {
