@@ -44,7 +44,6 @@ export class MapComponent implements OnInit {
   // layer: OlTileLayer;
   vector: VectorLayer;
   view: OlView;
-  stations: any;
 
   constructor(private dataService: DataService) { }
 
@@ -159,10 +158,8 @@ export class MapComponent implements OnInit {
         angle: Math.PI / 4
       })
     });
-    this.dataService.getstations().then(
+    this.dataService.getstations().toPromise().then(
       (st: any) => {
-        this.stations = st;
-        console.log(this.stations);
 
         this.map.addLayer(new VectorLayer({
           source: new VectorSource({

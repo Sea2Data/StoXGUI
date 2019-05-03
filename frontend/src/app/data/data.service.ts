@@ -9,13 +9,9 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getstations(): Promise<string> {
+  getstations(): Observable<string> {
     // return this.httpClient.get("http://localhost:8080/geojson", {responseType: 'json'});
-    return this.httpClient.get("http://localhost:8080/geojson", { responseType: 'text' })
-      .toPromise()
-      .then(res=>{
-        return res;
-      });
+    return this.httpClient.get("http://localhost:8080/geojson", { responseType: 'text' });
   }
 
 }
