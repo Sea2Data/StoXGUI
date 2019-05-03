@@ -23,17 +23,16 @@ export class ParameterComponent implements OnInit {
   {
     category: 'GUI',
     parameters: [
-      { name: 'Process name', value: 'ReadBioticXML' },
-      { name: 'Function', value: 'ReadBioticXML' },
-      { name: 'Enabled', value: 'true' }
+      { name: 'Break in GUI', value: 'true' },
+      { name: 'Respond in GUI', value: 'true' }
     ]
   },
   {
     category: 'Parameters',
     parameters: [
-      { name: 'Process name', value: 'ReadBioticXML' },
-      { name: 'Function', value: 'ReadBioticXML' },
-      { name: 'Enabled', value: 'true' }
+      { name: 'BioticData', value: 'ReadBioticXML' },
+      { name: 'FishStationExpr', value: "fs.getLengthSampleCount('TORSK')" },
+      { name: 'CatchExpr', value: "species == '164712'" }
     ]
   }
   ];
