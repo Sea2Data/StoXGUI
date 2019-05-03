@@ -14,6 +14,8 @@ import { ParameterComponent } from './parameter/parameter.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AngularResizedEventModule } from 'angular-resize-event';
 
+import { HttpClientModule }    from '@angular/common/http';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { AngularResizedEventModule } from 'angular-resize-event';
     NgbModule,
     AngularSplitModule.forRoot(),
     AngularResizedEventModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    HttpClientModule
   ],
   declarations: [
     HomeComponent,

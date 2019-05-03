@@ -25,6 +25,7 @@ const PROJECT2_BASELINE: Process[] = [
 export class ProjectService {
 
   selectedProject: Project;
+
   constructor() {
     this.setSelectedProject(this.getProjects()[0]);
   }

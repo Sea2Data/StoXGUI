@@ -25,6 +25,8 @@ import { click } from 'ol/events/condition';
 import Select from 'ol/interaction/Select';
 import { ResizedEvent } from 'angular-resize-event';
 
+import {DataService} from '../data/data.service';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -39,6 +41,8 @@ export class MapComponent implements OnInit {
   // layer: OlTileLayer;
   vector: VectorLayer;
   view: OlView;
+
+  constructor(private dataService : DataService) {}
 
   ngOnInit() {
     /*this.source = new OlXYZ({
@@ -128,7 +132,10 @@ export class MapComponent implements OnInit {
     this.map.addLayer(new VectorLayer({
       source: new VectorSource({
         format: new GeoJSON(),
-        url: './assets/acoustic.json'
+        features: (new GeoJSON).readFeatures(JSON.parse(this.dataService.getsts()), {
+				defaultDataProjection: 'EPSG:4326',
+				featureProjection: proj
+			  })
       }),
       style: s,
       selectable: true 
