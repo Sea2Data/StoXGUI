@@ -18,19 +18,22 @@ import { register } from 'ol/proj/proj4';
 import * as proj4x from 'proj4';
 
 import { add as addProjection } from 'ol/proj/projection';
-import { Fill, Stroke, Style, RegularShape } from 'ol/style';
+import { Fill, Stroke, Style, RegularShape } from 'ol/style'; 
 import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 
-import { click } from 'ol/events/condition';
+import { click, singleClick, shiftKeyOnly } from 'ol/events/condition';
 import Select from 'ol/interaction/Select';
 import { ResizedEvent } from 'angular-resize-event';
+import {defaults as defaultControls} from 'ol/control';
+import MousePosition from 'ol/control/MousePosition';
+import {createStringXY} from 'ol/coordinate';
 
 import {DataService} from '../data/data.service';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.scss']
 })
 
 export class MapComponent implements OnInit {
@@ -62,17 +65,33 @@ export class MapComponent implements OnInit {
     // Two example-projections (2nd is included anyway)
 
     proj4.defs('EPSG:9820', '+proj=laea +lat_0=60 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
-    proj4.defs("ESRI:54003", "+proj=mill +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +R_A +datum=WGS84 +units=m +no_defs");
-
+    proj4.defs('ESRI:54003', '+proj=mill +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +R_A +datum=WGS84 +units=m +no_defs');
+    proj4.defs('EPSG:3411', '+proj=stere +lat_0=90 +lat_ts=70 +lon_0=10 +k=1 +x_0=0 +y_0=0 +a=6378273 +b=6356889.449 +units=m +no_defs');
+    /*<Projection id="EPSG:3411"   proj4="+proj=stere +lat_0=90 +lat_ts=70 +lon_0=-45 +k=1 +x_0=0 +y_0=0 +a=6378273 +b=6356889.449 +units=m +no_defs"/>
+    <Projection id="EPSG:3412"   proj4="+proj=stere +lat_0=-90 +lat_ts=-70 +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378273 +b=6356889.449 +units=m +no_defs"/>
+    <Projection id="EPSG:3575"   proj4="+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"/>
+    <Projection id="EPSG:3857"   proj4="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"/>
+    <Projection id="EPSG:4258"   proj4="+proj=longlat +ellps=GRS80 +no_defs"/>
+    <Projection id="EPSG:4326"   proj4="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"/>
+    <Projection id="EPSG:25831"  proj4="+proj=utm +zone=31 +ellps=GRS80 +units=m +no_defs"/>
+    <Projection id="EPSG:25832"  proj4="+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs"/>
+    <Projection id="EPSG:28992"  proj4="+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +no_defs"/>
+    <Projection id="EPSG:32661"  proj4="+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"/>
+    <Projection id="EPSG:40000"  proj4="+proj=stere +ellps=WGS84 +lat_0=90 +lon_0=0 +no_defs"/>
+    <Projection id="EPSG:900913" proj4=" +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs"/>
+    <Projection id="EPSG:102100" proj4="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"/>
+    */
     //    +proj=mill +lon_0=90w
     register(proj4);
     // var test_coordinate = transform([-79.4460, 37.7890], 'EPSG:4326', 'EPSG:2284');
     //console.log(test_coordinate);
-    var proj = myProjectionName;//'EPSG:54003';
+    var proj = 'EPSG:9820';//'ESRI:54003'//'EPSG:3857';//'ESRI:54003';//'EPSG:3857';//'EPSG:4326';//'ESRI:54003';//'EPSG:9820';
 
     this.vector = new VectorLayer({
       source: new VectorSource({
-        url: 'assets/world-110m.1.json',
+        //url: 'assets/landflate_verden.json',
+        url: 'assets/landflate_verden.json',
+        //url: 'assets/world-110m.json',
         format: new TopoJSON({
           // don't want to render the full world polygon (stored as 'land' layer),
           // which repeats all countries
@@ -90,16 +109,26 @@ export class MapComponent implements OnInit {
     });*/
 
     this.view = new OlView({
+      //center: fromLonLat([170, 10], proj),
       center: fromLonLat([16.661594, 60.433237], proj),
       projection: proj,
       zoom: 3.9,
+    });
+    var mousePositionControl = new MousePosition({
+      coordinateFormat: createStringXY(4),
+      projection: 'EPSG:4326',
+      // comment the following two lines to have the mouse position
+      // be placed within the map.
+      className: 'custom-mouse-position',
+      target: document.getElementById('mouse-position'),
+      undefinedHTML: '&nbsp;'
     });
 
     this.map = new OlMap({
       target: 'map',
       layers: [this.vector],
       view: this.view,
-      controls: []
+      controls: defaultControls().extend([mousePositionControl])
     });
 
     // var f1 = new Feature({ id: 's1', geometry: new Point(fromLonLat([4, 60], proj)) });
@@ -107,7 +136,7 @@ export class MapComponent implements OnInit {
     /*
     var Ftrs: Feature[] = [];// = new Array();
 
-    for (var i = 0; i < 10000; i++) {
+    for (var i = 0; i < 12; i++) {
       var lon = 0 + Math.random() * 10;
       var lat = 55 + Math.random() * 20;
       var f = new Feature({ geometry: new Point(fromLonLat([lon, lat], proj)) });
@@ -142,8 +171,17 @@ export class MapComponent implements OnInit {
     }));
     //this.map.on('click', this.onClick());
     var selectClick = new Select({
-      condition: click,
-
+      //condition: (mapBrowserEvent) => {
+      //  return singleClick(mapBrowserEvent) && !shiftKeyOnly(mapBrowserEvent)},//function (ev) { return click; },
+      removeCondition: (mapBrowserEvent) => {
+        return false;
+      },//singleClick(mapBrowserEvent) && !shiftKeyOnly(mapBrowserEvent)},//function (ev) { return click; },
+      addCondition: (mapBrowserEvent) => {
+        return false;
+      },//singleClick(mapBrowserEvent) && !shiftKeyOnly(mapBrowserEvent)},//function (ev) { return click; },
+      toggleCondition: (mapBrowserEvent) => {
+        return true;
+      },//singleClick(mapBrowserEvent) && !shiftKeyOnly(mapBrowserEvent)},//function (ev) { return click; },
       layers: function (layer) {
         return layer.get("selectable") == true;
 
@@ -151,6 +189,7 @@ export class MapComponent implements OnInit {
       filter: function (feature, layer) {
         return true/* some logic on a feature and layer to decide if it should be selectable; return true if yes */;
       },
+      multi: true
     });
     this.map.addInteraction(selectClick);
     selectClick.on('select', (e) => {
@@ -158,6 +197,9 @@ export class MapComponent implements OnInit {
         // console.log("Id " + e.selected[0].getId());
         console.log(e.selected[0].getId() + " description " + e.selected[0].get('description'));//e.selected.getId());  
       }
+    });
+    selectClick.getFeatures().on('remove', function (event) {
+      console.log("remocve");
     });
   }
   onClick() {
@@ -176,4 +218,6 @@ Use QGIS/MapShaper
 MapShaper
 Read shape file into https://mapshaper.org/
 export as geojson or topojson.
+
+// Todo: for miller projection: do not cross 180 deg
 */
