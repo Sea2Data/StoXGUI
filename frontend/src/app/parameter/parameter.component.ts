@@ -7,20 +7,39 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   // encapsulation: ViewEncapsulation.None
 })
 export class ParameterComponent implements OnInit {
-  cols: any[];
+  cols = [
+    { field: 'name', header: 'Name', width: '50%' },
+    { field: 'value', header: 'Value', width: '50%' }
+  ];
 
-rowData = [
-    { name: 'Process name', value: 'ReadBioticXML'},
-    { name: 'Function', value: 'ReadBioticXML'},
-    { name: 'Enabled', value: 'true' }
-];
+  rowData = [{
+    category: 'Process',
+    parameters: [
+      { name: 'Process name', value: 'ReadBioticXML' },
+      { name: 'Function', value: 'ReadBioticXML' },
+      { name: 'Enabled', value: 'true' }
+    ]
+  },
+  {
+    category: 'GUI',
+    parameters: [
+      { name: 'Process name', value: 'ReadBioticXML' },
+      { name: 'Function', value: 'ReadBioticXML' },
+      { name: 'Enabled', value: 'true' }
+    ]
+  },
+  {
+    category: 'Parameters',
+    parameters: [
+      { name: 'Process name', value: 'ReadBioticXML' },
+      { name: 'Function', value: 'ReadBioticXML' },
+      { name: 'Enabled', value: 'true' }
+    ]
+  }
+  ];
   constructor() { }
 
   ngOnInit() {
-    this.cols = [
-      { field: 'name', header: 'Name', width: '50%' },
-      { field: 'value', header: 'Value', width: '50%' }
-    ];
   }
 
 }

@@ -7,35 +7,23 @@
 </ag-grid-angular>
 -->
 <p-accordion multiple="true" expandIcon="pi pi-fw pi-caret-down" collapseIcon="pi pi-fw pi-caret-right">
-    <p-accordionTab class="paramgroup" header="Process" selected="true">
-        <p-table [columns]="cols" [value]="rowData" [scrollable]="true" [resizableColumns]="true">
+    <p-accordionTab *ngFor="let row of rowData" class="paramgroup" header="{{row.category}}" selected="true">
+            
+            <!--<div *ngFor="let col of cols"> {{rowData2[col.field]}}
+            </div>-->
+        <p-table [columns]="cols" [value]="row.parameters" [scrollable]="true" [resizableColumns]="true">
             <ng-template pTemplate="colgroup" let-columns>
                 <colgroup>
                     <col *ngFor="let col of columns" [style.width]="col.width">
                 </colgroup>
             </ng-template>
-           <!--<ng-template pTemplate="header" let-columns>
-                <tr>
-                    <th *ngFor="let col of columns" pResizableColumn>
-                        {{col.header}}
-                    </th>
-                </tr>
-            </ng-template>--> 
-            <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <ng-template pTemplate="body" let-rowDat let-columns="columns">
                 <tr>
                     <td *ngFor="let col of columns" pResizableColumn class="ui-resizable-column">
-                        {{rowData[col.field]}}
+                        {{rowDat[col.field]}}
                     </td>
                 </tr>
             </ng-template>
         </p-table>
-    </p-accordionTab>
-    <p-accordionTab header="GUI" selected="true">
-        Content 2
-    </p-accordionTab>
-    <p-accordionTab header="Parameters" selected="true">
-
-
-        Content 3
     </p-accordionTab>
 </p-accordion>
