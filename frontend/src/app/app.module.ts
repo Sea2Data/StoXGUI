@@ -17,8 +17,11 @@ import { AngularResizedEventModule } from 'angular-resize-event';
 import { HttpClientModule }    from '@angular/common/http';
 
 import {AccordionModule} from 'primeng/accordion';
+import {CheckboxModule} from 'primeng/checkbox';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/components/table/table';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { InMemoryDataService }  from './in-memory-data.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { TableModule } from 'primeng/components/table/table';
     AgGridModule.withComponents([]),
     HttpClientModule,
     AccordionModule, 
+    CheckboxModule,
     BrowserAnimationsModule,
     TableModule
   ],

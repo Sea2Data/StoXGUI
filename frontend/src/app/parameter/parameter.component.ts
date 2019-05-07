@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+//import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-parameter',
@@ -15,30 +16,40 @@ export class ParameterComponent implements OnInit {
   rowData = [{
     category: 'Process',
     parameters: [
-      { name: 'Process name', value: 'ReadBioticXML' },
-      { name: 'Function', value: 'ReadBioticXML' },
-      { name: 'Enabled', value: 'true' }
+      { name: 'Process name', value: 'ReadBioticXML', type: 'string' },
+      { name: 'Function', value: 'ReadBioticXML', type: 'string' },
+      { name: 'Enabled', value: 'false', type: 'boolean' }
     ]
   },
   {
     category: 'GUI',
     parameters: [
-      { name: 'Break in GUI', value: 'true' },
-      { name: 'Respond in GUI', value: 'true' }
+      { name: 'Break in GUI', value: 'true', type: 'boolean' },
+      { name: 'Respond in GUI', value: 'true', type: 'boolean' }
     ]
   },
   {
     category: 'Parameters',
     parameters: [
-      { name: 'BioticData', value: 'ReadBioticXML' },
-      { name: 'FishStationExpr', value: "fs.getLengthSampleCount('TORSK')" },
-      { name: 'CatchExpr', value: "species == '164712'" }
+      { name: 'BioticData', value: 'ReadBioticXML', type: 'string' },
+      { name: 'FishStationExpr', value: "fs.getLengthSampleCount('TORSK')", type: 'string' },
+      { name: 'CatchExpr', value: "species == '164712'", type: 'string' }
     ]
   }
   ];
+  //  booleanForm: FormGroup;
   constructor() { }
 
   ngOnInit() {
   }
 
+  getMetParameterValueList(): any[] {
+    return [{ name: 'false' }, { name: 'true' }];
+  }
+  /*getMyVar() : boolean {
+    return JSON.parse(this.myVar3);
+  }
+  setMyVar(b : boolean) {
+    this.myVar3 = String(b);
+  }*/
 }

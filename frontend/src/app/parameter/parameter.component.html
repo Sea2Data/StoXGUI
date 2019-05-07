@@ -8,8 +8,8 @@
 -->
 <p-accordion multiple="true" expandIcon="pi pi-fw pi-caret-down" collapseIcon="pi pi-fw pi-caret-right">
     <p-accordionTab *ngFor="let row of rowData" class="paramgroup" header="{{row.category}}" selected="true">
-            
-            <!--<div *ngFor="let col of cols"> {{rowData2[col.field]}}
+
+        <!--<div *ngFor="let col of cols"> {{rowData2[col.field]}}
             </div>-->
         <p-table [columns]="cols" [value]="row.parameters" [scrollable]="true" [resizableColumns]="true">
             <ng-template pTemplate="colgroup" let-columns>
@@ -17,10 +17,25 @@
                     <col *ngFor="let col of columns" [style.width]="col.width">
                 </colgroup>
             </ng-template>
-            <ng-template pTemplate="body" let-rowDat let-columns="columns">
+            <ng-template pTemplate="body" let-parameter>
                 <tr>
-                    <td *ngFor="let col of columns" pResizableColumn class="ui-resizable-column">
-                        {{rowDat[col.field]}}
+                    <td pResizableColumn class="ui-resizable-column">
+                        <div [ngSwitch]="switch_expression">
+                            {{parameter['name']}}
+                        </div>
+                    </td>
+                    <td pResizableColumn class="ui-resizable-column" [ngSwitch]="parameter['type']">
+                        <div *ngSwitchCase="'string'">{{parameter['value']}}</div>
+                        <div *ngSwitchCase="'boolean'">
+                                {{parameter['value']}} 
+                                <!-- <p-checkbox [(ngModel)]="rowDat['value']" binary="true">
+                                </p-checkbox> -->
+                            <select [(ngModel)]="parameter['value']" 
+                                style="width:100% !important; border:none !important;">
+                                <option *ngFor="let bool of getMetParameterValueList()" [ngValue]="bool.name">{{bool.name}}</option>
+                            </select>
+                           
+                        </div>
                     </td>
                 </tr>
             </ng-template>
