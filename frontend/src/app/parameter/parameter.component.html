@@ -19,22 +19,21 @@
             </ng-template>
             <ng-template pTemplate="body" let-parameter>
                 <tr>
-                    <td pResizableColumn class="ui-resizable-column">
-                        <div [ngSwitch]="switch_expression">
-                            {{parameter['name']}}
+                    <td pResizableColumn>
+                        <div>
+                            {{parameter.name}}
                         </div>
                     </td>
-                    <td pResizableColumn class="ui-resizable-column" [ngSwitch]="parameter['type']">
-                        <div *ngSwitchCase="'string'">{{parameter['value']}}</div>
+                    <td pResizableColumn [ngSwitch]="parameter.type"> 
+                        <div *ngSwitchCase="'string'">{{parameter.value}}</div>
                         <div *ngSwitchCase="'boolean'">
-                                {{parameter['value']}} 
-                                <!-- <p-checkbox [(ngModel)]="rowDat['value']" binary="true">
-                                </p-checkbox> -->
-                            <select [(ngModel)]="parameter['value']" 
+                             {{parameter.value}}  
+                            <!--<select [(ngModel)]="parameter['value']"
                                 style="width:100% !important; border:none !important;">
-                                <option *ngFor="let bool of getMetParameterValueList()" [ngValue]="bool.name">{{bool.name}}</option>
-                            </select>
-                           
+                                <option *ngFor="let bool of getMetParameterValueList()" [ngValue]="bool.name">
+                                    {{bool.name}}</option>
+                            </select>-->
+                            <input type="checkbox"  [checked]="parameter.value == 'true' ? true : false"  (change)="parameter.value = $event.target.checked ? 'true' : 'false'; onChanged(parameter)" style="vertical-align: middle !important;"/>
                         </div>
                     </td>
                 </tr>

@@ -44,12 +44,13 @@ export class ParameterComponent implements OnInit {
   }
 
   getMetParameterValueList(): any[] {
-    return [{ name: 'false' }, { name: 'true' }];
+    return [{ name: false }, { name: true }];
   }
-  /*getMyVar() : boolean {
-    return JSON.parse(this.myVar3);
+ 
+  onChanged(o: any) {
+    
+    console.log("parameter " + o.name + " is changed to " + o.value);
   }
-  setMyVar(b : boolean) {
-    this.myVar3 = String(b);
-  }*/
+
+
 }
