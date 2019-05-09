@@ -1,12 +1,22 @@
-<ngb-tabset type="pills">
-    <ngb-tab style="height: 1.2em;" 
+<p-tabView>
+    <p-tabPanel  *ngFor="let tab of ['Baseline', 'Statistics', 'Reports']" header="{{tab}}"
+    >
+       Content of {{tab}}
+    </p-tabPanel>
+</p-tabView>
+
+<!-- <ngb-tabset type="pills">
+    <ngb-tab 
     *ngFor="let tab of ['Baseline', 'Statistics', 'Reports']">
 
       <ng-template ngbTabTitle>
-          <span>{{tab}}</span>
+          <span >{{tab}}</span>
       </ng-template>
       <ng-template ngbTabContent>Content of {{tab}}</ng-template>
-  </ngb-tab>
+  </ngb-tab> 
+</ngb-tabset>
+-->
+
   <!-- <ngb-tab>
     <ng-template ngbTabTitle><b>Baseline</b></ng-template>
     <ng-template ngbTabContent>
@@ -29,7 +39,6 @@
     <ng-template ngbTabContent>
     </ng-template>
   </ngb-tab> -->
-</ngb-tabset>
 <!-- <p-tabView>
   <p-tabPanel header="Baseline">
   </p-tabPanel>

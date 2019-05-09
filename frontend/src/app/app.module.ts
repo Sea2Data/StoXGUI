@@ -7,11 +7,11 @@ import { ProjectComponent } from './project/project.component';
 import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
 import { ProcessComponent } from './process/process.component';
-// import { TabViewModule } from 'primeng/primeng';
+ import { TabViewModule } from 'primeng/primeng';
 import { AngularSplitModule } from 'angular-split';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ParameterComponent } from './parameter/parameter.component';
-import { AgGridModule } from 'ag-grid-angular';
+//import { AgGridModule } from 'ag-grid-angular';
 import { AngularResizedEventModule } from 'angular-resize-event';
 
 import { HttpClientModule }    from '@angular/common/http';
@@ -26,11 +26,11 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
   imports: [
     BrowserModule,
     FormsModule,
-    // TabViewModule,
+    TabViewModule,
     NgbModule,
     AngularSplitModule.forRoot(),
     AngularResizedEventModule,
-    AgGridModule.withComponents([]),
+    //AgGridModule.withComponents([]),
     HttpClientModule,
     AccordionModule, 
     CheckboxModule,

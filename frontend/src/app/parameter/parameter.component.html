@@ -7,7 +7,7 @@
 </ag-grid-angular>
 -->
 <p-accordion multiple="true" expandIcon="pi pi-fw pi-caret-down" collapseIcon="pi pi-fw pi-caret-right">
-    <p-accordionTab *ngFor="let row of rowData" class="paramgroup" header="{{row.category}}" selected="true">
+    <p-accordionTab *ngFor="let row of rowData" header="{{row.category}}" selected="true">
 
         <!--<div *ngFor="let col of cols"> {{rowData2[col.field]}}
             </div>-->
@@ -33,7 +33,9 @@
                                 <option *ngFor="let bool of getMetParameterValueList()" [ngValue]="bool.name">
                                     {{bool.name}}</option>
                             </select>-->
-                            <input type="checkbox"  [checked]="parameter.value == 'true' ? true : false"  (change)="parameter.value = $event.target.checked ? 'true' : 'false'; onChanged(parameter)" style="vertical-align: middle !important;"/>
+                            <input type="checkbox"  [checked]="parameter.value == 'true' ? true : false"  
+                            (change)="parameter.value = $event.target.checked ? 'true' : 'false'; onChanged(parameter)" 
+                            style="vertical-align: middle !important;"/>
                         </div>
                     </td>
                 </tr>

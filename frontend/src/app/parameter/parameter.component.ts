@@ -41,14 +41,20 @@ export class ParameterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let a = [];
+    for (let i = 0; i < 2; i++) {
+      let j = { name: null };
+      a.push(j);
+      j.name = 'test' + i;
+    }
+    console.log(a[0].name + a[2].name);
   }
 
   getMetParameterValueList(): any[] {
     return [{ name: false }, { name: true }];
   }
- 
+
   onChanged(o: any) {
-    
     console.log("parameter " + o.name + " is changed to " + o.value);
   }
 
