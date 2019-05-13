@@ -7,7 +7,8 @@ import { ProjectComponent } from './project/project.component';
 import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
 import { ProcessComponent } from './process/process.component';
- import { TabViewModule } from 'primeng/primeng';
+import { TabViewModule } from 'primeng/primeng';
+import {ListboxModule} from 'primeng/listbox';
 import { AngularSplitModule } from 'angular-split';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ParameterComponent } from './parameter/parameter.component';
@@ -35,7 +36,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     AccordionModule, 
     CheckboxModule,
     BrowserAnimationsModule,
-    TableModule
+    TableModule,
+    ListboxModule
   ],
   declarations: [
     HomeComponent,

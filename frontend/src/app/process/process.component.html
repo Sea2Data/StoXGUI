@@ -1,6 +1,5 @@
 <p-tabView>
-    <p-tabPanel  *ngFor="let tab of ['Baseline', 'Statistics', 'Reports']" header="{{tab}}"
-    >
+    <p-tabPanel  *ngFor="let tab of ['Baseline', 'Statistics', 'Reports']" header="{{tab}}" [selected]="tab === 'Baseline'">
        Content of {{tab}}
     </p-tabPanel>
 </p-tabView>
