@@ -7,35 +7,39 @@
 </ag-grid-angular>
 -->
 <p-accordion multiple="true" expandIcon="pi pi-fw pi-caret-down" collapseIcon="pi pi-fw pi-caret-right">
-    <p-accordionTab class="paramgroup" header="Process" selected="true">
-        <p-table [columns]="cols" [value]="rowData" [scrollable]="true" [resizableColumns]="true">
+    <p-accordionTab *ngFor="let row of rowData" header="{{row.category}}" selected="true">
+
+        <!--<div *ngFor="let col of cols"> {{rowData2[col.field]}}
+            </div>-->
+        <p-table [columns]="cols" [value]="row.parameters" [scrollable]="true" [resizableColumns]="true">
             <ng-template pTemplate="colgroup" let-columns>
                 <colgroup>
                     <col *ngFor="let col of columns" [style.width]="col.width">
                 </colgroup>
             </ng-template>
-           <!--<ng-template pTemplate="header" let-columns>
+            <ng-template pTemplate="body" let-parameter>
                 <tr>
-                    <th *ngFor="let col of columns" pResizableColumn>
-                        {{col.header}}
-                    </th>
-                </tr>
-            </ng-template>--> 
-            <ng-template pTemplate="body" let-rowData let-columns="columns">
-                <tr>
-                    <td *ngFor="let col of columns" pResizableColumn class="ui-resizable-column">
-                        {{rowData[col.field]}}
+                    <td pResizableColumn>
+                        <div>
+                            {{parameter.name}}
+                        </div>
+                    </td>
+                    <td pResizableColumn [ngSwitch]="parameter.type"> 
+                        <div *ngSwitchCase="'string'">{{parameter.value}}</div>
+                        <div *ngSwitchCase="'boolean'">
+                             {{parameter.value}}  
+                            <!--<select [(ngModel)]="parameter['value']"
+                                style="width:100% !important; border:none !important;">
+                                <option *ngFor="let bool of getMetParameterValueList()" [ngValue]="bool.name">
+                                    {{bool.name}}</option>
+                            </select>-->
+                            <input type="checkbox"  [checked]="parameter.value == 'true' ? true : false"  
+                            (change)="parameter.value = $event.target.checked ? 'true' : 'false'; onChanged(parameter)" 
+                            style="vertical-align: middle !important;"/>
+                        </div>
                     </td>
                 </tr>
             </ng-template>
         </p-table>
-    </p-accordionTab>
-    <p-accordionTab header="GUI" selected="true">
-        Content 2
-    </p-accordionTab>
-    <p-accordionTab header="Parameters" selected="true">
-
-
-        Content 3
     </p-accordionTab>
 </p-accordion>
