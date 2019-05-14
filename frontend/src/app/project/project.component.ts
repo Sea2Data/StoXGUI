@@ -11,18 +11,19 @@ import { ProjectService } from '../project.service';
 })
 
 export class ProjectComponent implements OnInit {
-  cities2: City[];
-  selectedCity1: City;
+  projects: City[];
+  selectedProject: City;
   constructor(private ps: ProjectService) {
 
-    this.cities2 = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
+    this.projects = [
+      { name: 'Tobis 2017'},
+      { name: 'Tobis 2018'},
+      { name: 'Tobis 2019'},
+      { name: 'Makrell 2016'},
+      { name: 'Makrell 2017'},
+      { name: 'Makrell 2018'}
     ];
-    this.selectedCity1 = this.cities2[1];
+    this.selectedProject = this.projects[1];
   }
 
   ngOnInit() {
@@ -32,5 +33,4 @@ export class ProjectComponent implements OnInit {
 
 class City {
   name: string;
-  code: string;
 }
