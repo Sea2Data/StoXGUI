@@ -1,5 +1,5 @@
 <p-tabView>
     <p-tabPanel  *ngFor="let tab of ['Baseline', 'Statistics', 'Reports']" header="{{tab}}" [selected]="tab === 'Baseline'">
-       Content of {{tab}}
+            <p-listbox [options]="ps.getProcesses('baseline')" optionLabel="name"></p-listbox> 
     </p-tabPanel>
 </p-tabView>

@@ -39,7 +39,9 @@ const PROJECT2_BASELINE: Process[] = [
 })
 export class ProjectService {
 
-  selectedProject: Project;
+  selectedProject: Project = null;
+  selectedProcesses: Process[] = null;
+
 
   constructor() {
     this.setSelectedProject(this.getProjects()[0]);
@@ -47,6 +49,11 @@ export class ProjectService {
 
   setSelectedProject(project: Project) {
     this.selectedProject = project;
+  }
+
+  onSelectedProjectChanged(event) {
+    this.selectedProcesses = null; // to be retrieved again from API
+    console.log("test1")
   }
 
   getSelectedProject(): Project {
@@ -62,15 +69,22 @@ export class ProjectService {
    * @param model 
    */
   getProcesses(model: String): Process[] {
+    if (this.selectedProcesses != null) {
+      console.log("test3")
+      return this.selectedProcesses; // cached
+    }
     if (this.selectedProject != null) {
       let plist: Process[];
       switch (this.selectedProject.name) {
         case 'Gytetokt 2004': plist = PROJECT1_BASELINE; break;
         case 'Tobis 2006': plist = PROJECT2_BASELINE; break;
       }
-      return plist.filter(pr => pr.model === model);
+      if (plist != null) {
+        this.selectedProcesses = plist.filter(pr => pr.model === model);
+        console.log("test2")
+      }
     }
-    return null;
+    return this.selectedProcesses;
   }
   /*  getObservableProjects(): Observable<Project[]> {
       return of(this.getProjects());

@@ -1,0 +1,13 @@
+backend/.settings/org.eclipse.core.resources.prefs
+backend/.project
+backend/.classpath
+backend/target/classes/no/imr/model/Properties.class
+backend/.settings/org.eclipse.jdt.apt.core.prefs
+backend/.settings/org.eclipse.jdt.core.prefs
+backend/.settings/org.eclipse.m2e.core.prefs
+backend/target/classes/application.properties
+backend/target/classes/no/imr/SpringBootGeoJson.class
+backend/target/classes/no/imr/controllers/TestController.class
+backend/target/classes/no/imr/model/Feature.class
+backend/target/classes/no/imr/model/FeatureCollection.class
+backend/target/classes/no/imr/model/Geometry.class
