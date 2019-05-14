@@ -1,20 +1,5 @@
-<div class="list-group" style="height: 100%">
-  <div class="list-group-item-heading py-1 text-center text-primary h6 text-uppercase">
-    Projects
-  </div>
-  <div style="overflow-y:scroll; height:100%">
-    <div *ngFor="let project of ps.getProjects()" [class.active]="project === ps.getSelectedProject()"
-      class="list-group-item py-0" (click)="ps.setSelectedProject(project)">{{project.name}}
-    </div>
-  </div>
-</div>
-
-<!-- 
-<h3 id="">Projects</h3>
-<ul class="projects">
-  <li *ngFor="let project of projects"
-    [class.selected]="project === selectedProject"
-    (click)="onSelect(project)">
-   {{project.name}}
-  </li>
-</ul>  -->
+<p-tabView>
+  <p-tabPanel *ngFor="let tab of ['Projects']" header="{{tab}}" [selected]="tab === 'Projects'">
+      <p-listbox [options]="projects" [(ngModel)]="selectedProject" optionLabel="name"></p-listbox> 
+  </p-tabPanel>
+</p-tabView>

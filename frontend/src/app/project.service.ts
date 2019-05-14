@@ -5,7 +5,22 @@ import { Process } from './process';
 
 const PROJECTS: Project[] = [
   { name: 'Gytetokt 2004' },
-  { name: 'Tobis 2006' }
+  { name: 'Tobis 2006' },
+  { name: 'Tobis 2007' },
+  { name: 'Tobis 2008' },
+  { name: 'Tobis 2009' },
+  { name: 'Tobis 2010' },
+  { name: 'Tobis 2011' },
+  { name: 'Tobis 2012' },
+  { name: 'Tobis 2013' },
+  { name: 'Tobis 2014' },
+  { name: 'Tobis 2015' },
+  { name: 'Tobis 2016' },
+  { name: 'Tobis 2017' },
+  { name: 'Tobis 2018' },
+  { name: 'Tobis 2019' },
+  { name: 'Tobis 2020' },
+  { name: 'Tobis 2021' }
 ];
 
 const PROJECT1_BASELINE: Process[] = [
