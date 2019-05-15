@@ -1,5 +1,20 @@
 <p-tabView>
-    <p-tabPanel  *ngFor="let tab of ['Baseline', 'Statistics', 'Reports']" header="{{tab}}" [selected]="tab === 'Baseline'">
-            <p-listbox [options]="ps.getProcesses('baseline')" optionLabel="name"></p-listbox> 
+    <p-tabPanel *ngFor="let model of ps.getModels()" header="{{model.caption}}" [selected]="model.name === 'baseline'">
+        <!--given optionLabel, the items are of type SelectItem and has a 'value' property for the object-->
+        <p-toolbar>
+            <div>
+                <button pButton type="button" label="New"></button>
+                <!-- <button pButton type="button" label="Upload" icon="pi pi-upload" class="ui-button-success"></button> -->
+            </div>
+        </p-toolbar>
+
+        <p-listbox [options]="ps.getProcesses(model.name)" [(ngModel)]="ps.selectedProcess" optionLabel="name">
+            <ng-template let-process pTemplate="item">
+                <div>
+                    <img src="./assets/images/process.png" width="16" style="margin-bottom:2px;">
+                    <span>{{process.value.name}}</span>
+                </div>
+            </ng-template>
+        </p-listbox>
     </p-tabPanel>
 </p-tabView>

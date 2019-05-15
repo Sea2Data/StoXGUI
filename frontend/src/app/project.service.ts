@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 //import { Observable, of } from 'rxjs';
 import { Project } from './project';
 import { Process } from './process';
+import { Model } from './model';
 
 const PROJECTS: Project[] = [
   { name: 'Gytetokt 2004' },
@@ -25,13 +26,23 @@ const PROJECTS: Project[] = [
 
 const PROJECT1_BASELINE: Process[] = [
   { name: 'ReadBioticXML', model: 'baseline' },
-  { name: 'ReadAcousticXML', model: 'baseline' }
+  { name: 'ReadAcousticXML', model: 'baseline' },
+  { name: 'runBootstrap', model: 'statistics' },
+  { name: 'saveProjectData', model: 'statistics' },
+  { name: 'FillMissingData', model: 'reports' },
+  { name: 'EstimateByPopulationCategory', model: 'reports' }
 ];
 
 const PROJECT2_BASELINE: Process[] = [
   { name: 'ReadBioticXML', model: 'baseline' },
   { name: 'DefineStratum', model: 'baseline' }
 ];
+
+const MODELS: Model[] = [
+  { name: 'baseline', caption: 'Baseline' },
+  { name: 'statistics', caption: 'Statistics' },
+  { name: 'reports', caption: 'Reports' }
+]
 
 
 @Injectable({
@@ -41,6 +52,7 @@ export class ProjectService {
 
   selectedProject: Project = null;
   selectedProcesses: Process[] = null;
+  selectedProcess: Process = null;
 
 
   constructor() {
@@ -52,7 +64,7 @@ export class ProjectService {
   }
 
   onSelectedProjectChanged(event) {
-    this.selectedProcesses = null; // to be retrieved again from API
+    this.selectedProcesses = this.getProcesses('baseline'); // to be retrieved again from API
     console.log("test1")
   }
 
@@ -60,9 +72,20 @@ export class ProjectService {
     return this.selectedProject;
   }
 
+  getSelectedProcess(): Process {
+    return this.selectedProcess;
+  }
+
+  setSelectedProcess(process: Process) {
+    this.selectedProcess = process;
+  }
 
   getProjects(): Project[] {
     return PROJECTS;
+  }
+
+  getModels(): Model[] {
+    return MODELS;
   }
   /**
    * get processes
@@ -76,12 +99,17 @@ export class ProjectService {
     if (this.selectedProject != null) {
       let plist: Process[];
       switch (this.selectedProject.name) {
-        case 'Gytetokt 2004': plist = PROJECT1_BASELINE; break;
-        case 'Tobis 2006': plist = PROJECT2_BASELINE; break;
-      }
-      if (plist != null) {
-        this.selectedProcesses = plist.filter(pr => pr.model === model);
-        console.log("test2")
+        case 'Gytetokt 2004':
+          switch (model) {
+            case 'baseline': return [{ name: 'ReadBioticXML', model: 'baseline' }, { name: 'ReadAcousticXML', model: 'baseline' }];
+            case 'statistics': return [{ name: 'runBootstrap', model: 'statistics' }, { name: 'saveProjectData', model: 'statistics' }];
+          }
+          break;
+        case 'Tobis 2006':
+          switch (model) {
+            case 'baseline': return [{ name: 'ReadBioticXML', model: 'baseline' }, { name: 'DefineStratum', model: 'baseline' }];
+            case 'statistics': return [{ name: 'runBootstrap', model: 'statistics' }, { name: 'saveProjectData', model: 'statistics' }];
+          }
       }
     }
     return this.selectedProcesses;

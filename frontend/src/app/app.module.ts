@@ -8,9 +8,10 @@ import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
 import { ProcessComponent } from './process/process.component';
 import { TabViewModule } from 'primeng/primeng';
-import {ListboxModule} from 'primeng/listbox';
+import { ListboxModule} from 'primeng/listbox';
+import { ToolbarModule} from 'primeng/toolbar';
 import { AngularSplitModule } from 'angular-split';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ParameterComponent } from './parameter/parameter.component';
 //import { AgGridModule } from 'ag-grid-angular';
 import { AngularResizedEventModule } from 'angular-resize-event';
@@ -37,7 +38,8 @@ import { TableModule } from 'primeng/components/table/table';
     CheckboxModule,
     BrowserAnimationsModule,
     TableModule,
-    ListboxModule
+    ListboxModule,
+    ToolbarModule
   ],
   declarations: [
     HomeComponent,

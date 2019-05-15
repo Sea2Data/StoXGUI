@@ -1,170 +1,243 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-@import 'assets/hi-theme-primeng/hi-primeng.scss';
-@import 'assets/hi-theme-bootstrap/hi-bootstrap.scss';
+@import "assets/hi-theme-primeng/hi-primeng.scss";
+@import "assets/hi-theme-bootstrap/hi-bootstrap.scss";
 //@import "~ag-grid-community/dist/styles/ag-grid.css";
 //@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
-.title{
-    margin-top: 1rem;
-    font-weight:bold;
+.title {
+  margin-top: 1rem;
+  font-weight: bold;
 }
 
-
-
-$available:#83ca5d;
+$available: #83ca5d;
 $missing: #ff7d7d;
 $waiting: #f9d457;
 $unknown: #ad75cc;
 $nodata: #acacac;
 
-.datastatus-txt.available{ color: $available; }
-.datastatus-bg.available{ background-color: $available !important; color: rgba(0,0,0,0.4); }
-.datastatus-txt.missing, .datastatus-txt.unavailable{color: $missing; }
-.datastatus-bg.missing, .datastatus-bg.unavailable{ background-color: $missing !important; color: rgba(0,0,0,0.4); }
-.datastatus-txt.waiting{ color: $waiting; }
-.datastatus-bg.waiting{ background-color: $waiting !important; color: rgba(0,0,0,0.4); }
-.datastatus-txt.unknown{ color: $unknown; }
-.datastatus-bg.unknown{ background-color: $unknown !important; color: rgba(0,0,0,0.4); }
-.datastatus-txt.nodata, .datastatus-txt.notexist{ color: $nodata; }
-.datastatus-bg.nodata, .datastatus-bg.notexist{ background-color: $nodata !important; color: rgba(0,0,0,0.4); }
-
-
-
-.datatype.cruise, .datatype.CRUISE{
-    color: #67868e;
+.datastatus-txt.available {
+  color: $available;
 }
-.datatype-bg.cruise, .datatype-bg.CRUISE{
-    background-color: #67868e;
+.datastatus-bg.available {
+  background-color: $available !important;
+  color: rgba(0, 0, 0, 0.4);
 }
-.active .datatype.cruise, .active .datatype.CRUISE, 
-.ui-state-highlight .datatype.cruise, .ui-state-highlight .datatype.CRUISE {
-    color: white;
+.datastatus-txt.missing,
+.datastatus-txt.unavailable {
+  color: $missing;
 }
-
-.datatype.echo, .datatype.ECHO, .datatype.ECHOSOUNDER{
-    color: #bd5175;
+.datastatus-bg.missing,
+.datastatus-bg.unavailable {
+  background-color: $missing !important;
+  color: rgba(0, 0, 0, 0.4);
 }
-.datatype-bg.echo, .datatype-bg.ECHO, .datatype-bg.ECHOSOUNDER{
-    background-color: #bd5175;
+.datastatus-txt.waiting {
+  color: $waiting;
 }
-.active .datatype.echo, .active .datatype.ECHO, .active .datatype.ECHOSOUNDER, 
-.ui-state-highlight .datatype.echo, .ui-state-highlight .datatype.ECHO, .ui-state-highlight .datatype.ECHOSOUNDER{
-    color: white;
+.datastatus-bg.waiting {
+  background-color: $waiting !important;
+  color: rgba(0, 0, 0, 0.4);
 }
-
-.datatype.biotic, .datatype.BIOTIC{
-    color: #A0CD16;
+.datastatus-txt.unknown {
+  color: $unknown;
 }
-.datatype-bg.biotic, .datatype-bg.BIOTIC{
-    background-color: #A0CD16;
+.datastatus-bg.unknown {
+  background-color: $unknown !important;
+  color: rgba(0, 0, 0, 0.4);
 }
-.active .datatype.biotic, .active .datatype.BIOTIC, 
-.ui-state-highlight .datatype.biotic, .ui-state-highlight .datatype.BIOTIC {
-    color: white;
+.datastatus-txt.nodata,
+.datastatus-txt.notexist {
+  color: $nodata;
+}
+.datastatus-bg.nodata,
+.datastatus-bg.notexist {
+  background-color: $nodata !important;
+  color: rgba(0, 0, 0, 0.4);
 }
 
-.datatype.ctd, .datatype.CTD{
-    color: #ca4c29;
+.datatype.cruise,
+.datatype.CRUISE {
+  color: #67868e;
 }
-.datatype-bg.ctd, .datatype-bg.CTD{
-    background-color: #ca4c29;
+.datatype-bg.cruise,
+.datatype-bg.CRUISE {
+  background-color: #67868e;
 }
-.active .datatype.ctd, .active .datatype.CTD, 
-.ui-state-highlight .datatype.ctd, .ui-state-highlight .datatype.CTD {
-    color: white;
-}
-
-.datatype.chemistry, .datatype.chem, .datatype.CHEMISTRY, .datatype.CHEM{
-    color: #3caf7e;
-}
-.datatype-bg.chemistry, .datatype-bg.chem, .datatype-bg.CHEMISTRY, .datatype-bg.CHEM{
-    background-color: #3caf7e;
-}
-.active .datatype.chemistry, .active .datatype.chem, .active .datatype.CHEMISTRY, .active .datatype.CHEM, 
-.ui-state-highlight .datatype.chemistry, .ui-state-highlight .datatype.chem, .ui-state-highlight .datatype.CHEMISTRY, .ui-state-highlight .datatype.CHEM {
-    color: white;
+.active .datatype.cruise,
+.active .datatype.CRUISE,
+.ui-state-highlight .datatype.cruise,
+.ui-state-highlight .datatype.CRUISE {
+  color: white;
 }
 
-.datatype.all, .datatype.ALL{
-    color: rgb(78, 78, 78);
+.datatype.echo,
+.datatype.ECHO,
+.datatype.ECHOSOUNDER {
+  color: #bd5175;
 }
-.datatype-bg.all, .datatype-bg.ALL{
-    background-color: rgb(78, 78, 78);
+.datatype-bg.echo,
+.datatype-bg.ECHO,
+.datatype-bg.ECHOSOUNDER {
+  background-color: #bd5175;
 }
-.active .datatype.all, .active .datatype.ALL, 
-.ui-state-highlight .datatype.all, .ui-state-highlight .datatype.ALL {
-    color: white;
+.active .datatype.echo,
+.active .datatype.ECHO,
+.active .datatype.ECHOSOUNDER,
+.ui-state-highlight .datatype.echo,
+.ui-state-highlight .datatype.ECHO,
+.ui-state-highlight .datatype.ECHOSOUNDER {
+  color: white;
 }
 
+.datatype.biotic,
+.datatype.BIOTIC {
+  color: #a0cd16;
+}
+.datatype-bg.biotic,
+.datatype-bg.BIOTIC {
+  background-color: #a0cd16;
+}
+.active .datatype.biotic,
+.active .datatype.BIOTIC,
+.ui-state-highlight .datatype.biotic,
+.ui-state-highlight .datatype.BIOTIC {
+  color: white;
+}
 
-  .ui-accordion {
-    .ui-accordion-header {
-        background-color: rgb(213,213,213) !important;
-        color: black !important;
-        a {
-            text-decoration: none ;
-            font-size: $fontSize !important;
-            background-color: rgb(213,213,213) !important;
-            color: black !important;
-            padding:0 !important;
-            border:none !important;
-        }
-        span {
-            color: black !important;
-        }
+.datatype.ctd,
+.datatype.CTD {
+  color: #ca4c29;
+}
+.datatype-bg.ctd,
+.datatype-bg.CTD {
+  background-color: #ca4c29;
+}
+.active .datatype.ctd,
+.active .datatype.CTD,
+.ui-state-highlight .datatype.ctd,
+.ui-state-highlight .datatype.CTD {
+  color: white;
+}
+
+.datatype.chemistry,
+.datatype.chem,
+.datatype.CHEMISTRY,
+.datatype.CHEM {
+  color: #3caf7e;
+}
+.datatype-bg.chemistry,
+.datatype-bg.chem,
+.datatype-bg.CHEMISTRY,
+.datatype-bg.CHEM {
+  background-color: #3caf7e;
+}
+.active .datatype.chemistry,
+.active .datatype.chem,
+.active .datatype.CHEMISTRY,
+.active .datatype.CHEM,
+.ui-state-highlight .datatype.chemistry,
+.ui-state-highlight .datatype.chem,
+.ui-state-highlight .datatype.CHEMISTRY,
+.ui-state-highlight .datatype.CHEM {
+  color: white;
+}
+
+.datatype.all,
+.datatype.ALL {
+  color: rgb(78, 78, 78);
+}
+.datatype-bg.all,
+.datatype-bg.ALL {
+  background-color: rgb(78, 78, 78);
+}
+.active .datatype.all,
+.active .datatype.ALL,
+.ui-state-highlight .datatype.all,
+.ui-state-highlight .datatype.ALL {
+  color: white;
+}
+
+.ui-accordion {
+  .ui-accordion-header {
+    background-color: rgb(213, 213, 213) !important;
+    color: black !important;
+    a {
+      text-decoration: none;
+      font-size: $fontSize !important;
+      background-color: rgb(213, 213, 213) !important;
+      color: black !important;
+      padding: 0 !important;
+      border: none !important;
     }
-    .ui-accordion-content {
-        padding:0 !important;
-        font-size: $fontSize !important;
-        border:none !important;
+    span {
+      color: black !important;
     }
   }
-      
-    .ui-tabview {
-    padding:0px !important;
-    margin:0 !important;
-    width: 100% !important; 
-    height:100% !important;
-    box-sizing: content-box !important; 
-    border:none !important;
-    user-select: none;
-    .ui-tabview-nav {
-        background-color: rgb(240, 240,240) !important;
-    }
-    .ui-tabview-panels {
-        padding:0 !important;
-        border:1px solid rgb(137,140,149) !important;
-        box-sizing: content-box !important; 
-        height:calc(100% - 1.5rem) !important; 
-        width: 100% !important; 
-        overflow-y:scroll !important;
-      }
-  
-}
-  .ui-listbox {
-    padding:0 !important;
-    width: 100% !important; 
-    height:100% !important;
-    box-sizing: content-box !important; 
-    border:none !important;
+  .ui-accordion-content {
+    padding: 0 !important;
+    font-size: $fontSize !important;
+    border: none !important;
   }
-  .ui-listbox-item {
-      padding-left: 0.4rem !important;
-      padding-top: 0!important;
-      padding-bottom: 0!important;
-      padding-right: 0!important;
-      width: 100% !important; 
-      font-size: 0.85rem !important;
-      user-select: none;
-    } 
-
-  .ui-tabview-panel {
-    padding:0 !important;
-    //height:100%  !important;
-    border:none !important;
 }
-  /*.ui-listbox-item {
+
+.ui-tabview {
+  padding: 0px !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: content-box !important;
+  border: none !important;
+  user-select: none;
+  .ui-tabview-nav {
+    background-color: rgb(240, 240, 240) !important;
+  }
+  .ui-tabview-panels {
+    padding: 0 !important;
+    border: 1px solid rgb(137, 140, 149) !important;
+    box-sizing: content-box !important;
+    height: calc(100% - 1.5rem) !important;
+    width: 100% !important;
+    overflow-y: scroll !important;
+  }
+}
+.ui-listbox {
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: content-box !important;
+  border: none !important;
+}
+.ui-listbox-item {
+  padding-left: 0.4rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+  font-size: 0.9rem !important;
+  color: black !important;
+  user-select: none;
+}
+
+.ui-tabview-panel {
+  padding: 0 !important;
+  //height:100%  !important;
+  border: none !important;
+}
+
+// tabview 
+.ui-tabview {
+   // navigation bar - inline/nowrap
+  .ui-tabview-nav {
+    white-space: nowrap;
+    overflow-x: hidden;
+    li {
+      display: inline;
+      float: none;
+    }
+  }
+}
+/*.ui-listbox-item {
     padding: .1em  !important;
     margin: 0 !important;
     //background-color: white !important;
@@ -175,5 +248,4 @@ $nodata: #acacac;
     height: 100% !important;
 }*/
 
-
-  //.ui-widget, .ui-widget .ui-widget {    font-size: $fontSize !important;}
+//.ui-widget, .ui-widget .ui-widget {    font-size: $fontSize !important;}
