@@ -64,8 +64,8 @@ export class ProjectService {
   }
 
   onSelectedProjectChanged(event) {
-    this.selectedProcesses = this.getProcesses('baseline'); // to be retrieved again from API
-    console.log("test1")
+    this.selectedProcesses = null;//this.getProcesses('baseline'); // to be retrieved again from API
+    //console.log("test1")
   }
 
   getSelectedProject(): Project {
@@ -92,12 +92,15 @@ export class ProjectService {
    * @param model 
    */
   getProcesses(model: String): Process[] {
-    if (this.selectedProcesses != null) {
+    if (this.selectedProcesses == null) {
       console.log("test3")
-      return this.selectedProcesses; // cached
+      this.selectedProcesses = this.getProcessesByModelAndProject(model, this.selectedProject.name);
     }
+    return this.selectedProcesses;
+  }
+
+  getProcessesByModelAndProject(model: String, project: string): Process[] {
     if (this.selectedProject != null) {
-      let plist: Process[];
       switch (this.selectedProject.name) {
         case 'Gytetokt 2004':
           switch (model) {
@@ -112,9 +115,9 @@ export class ProjectService {
           }
       }
     }
-    return this.selectedProcesses;
+    return [];
   }
   /*  getObservableProjects(): Observable<Project[]> {
-      return of(this.getProjects());
-    }*/
+    return of(this.getProjects());
+  }*/
 }
