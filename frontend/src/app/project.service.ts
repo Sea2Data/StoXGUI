@@ -104,7 +104,7 @@ export class ProjectService {
       switch (this.selectedProject.name) {
         case 'Gytetokt 2004':
           switch (model) {
-            case 'baseline': return [{ name: 'ReadBioticXML', model: 'baseline' }, { name: 'ReadAcousticXML', model: 'baseline' }];
+            case 'baseline': return [{ name: 'ReadBioticXML', model: 'baseline', breakingui:true }, { name: 'ReadAcousticXML', model: 'baseline' }];
             case 'statistics': return [{ name: 'runBootstrap', model: 'statistics' }, { name: 'saveProjectData', model: 'statistics' }];
           }
           break;
