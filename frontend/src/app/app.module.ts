@@ -22,6 +22,7 @@ import {AccordionModule} from 'primeng/accordion';
 import {CheckboxModule} from 'primeng/checkbox';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/components/table/table';
+import { ContextMenuModule } from 'ngx-contextmenu';
 //import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService }  from './in-memory-data.service';
 @NgModule({
@@ -39,7 +40,8 @@ import { TableModule } from 'primeng/components/table/table';
     BrowserAnimationsModule,
     TableModule,
     ListboxModule,
-    ToolbarModule
+    ToolbarModule,
+    ContextMenuModule.forRoot()
   ],
   declarations: [
     HomeComponent,

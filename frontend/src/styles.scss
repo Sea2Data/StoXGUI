@@ -33,7 +33,7 @@ $nodata: #acacac;
     }
     span {
       color: black !important;
-    } 
+    }
   }
   .ui-accordion-content {
     padding: 0 !important;
@@ -95,20 +95,43 @@ $nodata: #acacac;
       .ui-toolbar {
         padding: 0px;
         background-color: $menuColor;
-        border:none;
-        height:1.5rem;
+        border: none;
+        height: 1.5rem;
         button {
-            height:1.35rem;
-            width:1.35rem;
-            padding:0rem;
-            margin-bottom:0.8rem;
+          height: 1.35rem;
+          width: 1.35rem;
+          padding: 0rem;
+          margin-bottom: 0.8rem;
+          vertical-align: center;
+          //border:none;
+          img {
             vertical-align: center;
-            //border:none;
-            img {
-                vertical-align: center;
-            }
+          }
         }
       }
+    }
+  }
+}
+
+.ngx-contextmenu {
+  background-color: rgb(242, 242, 242);
+  ul {
+    padding: 0;
+    margin: 0;
+    li:not(.divider) {
+      background-color: rgb(242, 242, 242);
+      padding: 0.05rem;
+      margin: 0;
+      a {
+        margin-left: 33px;
+        color: black;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+    li:hover:not(.divider) {
+      background-color: rgb(145, 201, 247);
     }
   }
 }
