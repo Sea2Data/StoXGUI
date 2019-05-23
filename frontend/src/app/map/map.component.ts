@@ -158,9 +158,39 @@ export class MapComponent implements OnInit {
         angle: Math.PI / 4
       })
     });
-    this.dataService.getstations().toPromise().then(
-      (st: any) => {
 
+    let s2 = new Style({
+      stroke: new Stroke({
+        color: 'blue',
+        width: 3
+      }),
+      fill: new Fill({
+        color: 'rgba(0, 0, 255, 0.1)'
+      })
+    })
+
+    /*
+    // this works
+    this.dataService.getjsonfromfile().toPromise().then(
+      (st: any) => {
+        console.log(st + " in 1");
+        this.map.addLayer(new VectorLayer({
+          source: new VectorSource({
+            format: new GeoJSON(),
+            features: (new GeoJSON).readFeatures(st, {
+              defaultDataProjection: 'EPSG:4326',
+              featureProjection: proj
+            })
+          }),
+          style: s,
+          selectable: true
+        }));
+      }); 
+      */
+      // this works (points)
+     this.dataService.getjsonfromfile().toPromise().then(
+      (st: any) => {
+        console.log(JSON.parse(st))
         this.map.addLayer(new VectorLayer({
           source: new VectorSource({
             format: new GeoJSON(),
@@ -173,6 +203,40 @@ export class MapComponent implements OnInit {
           selectable: true
         }));
       });
+
+     // this works (polygon)
+     this.dataService.getgeojson().toPromise().then(
+      (st: any) => {
+        console.log(JSON.parse(st))
+        this.map.addLayer(new VectorLayer({
+          source: new VectorSource({
+            format: new GeoJSON(),
+            features: (new GeoJSON).readFeatures(JSON.parse(st), {
+              defaultDataProjection: 'EPSG:4326',
+              featureProjection: proj
+            })
+          }),
+          style: s2,
+          selectable: true
+        }));
+      });  
+         
+      /*
+      // this doesn't work
+     this.dataService.getFeatures().subscribe(
+      (st: Feature[]) => {
+
+        this.map.addLayer(new VectorLayer({
+          source: new VectorSource({
+            // format: new GeoJSON(),
+            features: st
+          }),
+          style: s,
+          selectable: true
+        }));
+      });    
+      */
+
     //this.map.on('click', this.onClick());
     var selectClick = new Select({
       //condition: (mapBrowserEvent) => {

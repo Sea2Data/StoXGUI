@@ -21,8 +21,8 @@ import {AccordionModule} from 'primeng/accordion';
 import {CheckboxModule} from 'primeng/checkbox';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/components/table/table';
-//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { InMemoryDataService }  from './in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -33,6 +33,9 @@ import { TableModule } from 'primeng/components/table/table';
     AngularResizedEventModule,
     //AgGridModule.withComponents([]),
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
     AccordionModule, 
     CheckboxModule,
     BrowserAnimationsModule,
