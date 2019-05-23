@@ -8,9 +8,10 @@ import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
 import { ProcessComponent } from './process/process.component';
 import { TabViewModule } from 'primeng/primeng';
-import {ListboxModule} from 'primeng/listbox';
+import { ListboxModule} from 'primeng/listbox';
+import { ToolbarModule} from 'primeng/toolbar';
 import { AngularSplitModule } from 'angular-split';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ParameterComponent } from './parameter/parameter.component';
 //import { AgGridModule } from 'ag-grid-angular';
 import { AngularResizedEventModule } from 'angular-resize-event';
@@ -23,6 +24,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/components/table/table';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { ContextMenuModule } from 'ngx-contextmenu';
+//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { InMemoryDataService }  from './in-memory-data.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import { InMemoryDataService }  from './in-memory-data.service';
     CheckboxModule,
     BrowserAnimationsModule,
     TableModule,
-    ListboxModule
+    ListboxModule,
+    ToolbarModule,
+    ContextMenuModule.forRoot()
   ],
   declarations: [
     HomeComponent,

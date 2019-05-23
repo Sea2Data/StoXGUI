@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Process } from '../process';
 import { ProjectService } from '../project.service';
 
+import { ContextMenuComponent } from 'ngx-contextmenu';
 
 @Component({
   selector: 'app-process',
@@ -15,5 +16,12 @@ export class ProcessComponent implements OnInit {
 
   ngOnInit() {
   }
+  @ViewChild(ContextMenuComponent) public basicMenu: ContextMenuComponent;
 
+  showMessage(message: any) {
+    console.log(message);
+  }
+  toggleBreak(p: Process) {
+    p.breakingui = !p.breakingui
+  }
 }

@@ -1,1 +1,3 @@
-.ui-widget, .ui-widget .ui-widget {    font-size: 4px !important;}
+.my-icon :before {
+    content: "./../assets/images/run16.png"
+}

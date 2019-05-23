@@ -6,7 +6,7 @@ $primaryTextColor:#ffffff;
 
 //Global
 $fontFamily:"Open Sans","Helvetica Neue",sans-serif;
-$fontSize:14px;
+$fontSize:0.8rem;
 $textColor:#333333;
 $textSecondaryColor:lighten($textColor,25%);
 $borderRadius:3px;
@@ -286,11 +286,11 @@ $panelHeaderIconColor:#848484;
 $panelHeaderIconHoverColor:#333333;
 $panelHeaderIconTransition:color $transitionDuration;
 $panelHeaderFontWeight:700;
-$panelHeaderPadding:0.571em 1em;
+$panelHeaderPadding:0;
 $panelContentBorder:1px solid #c8c8c8;
 $panelContentBgColor:#ffffff;
 $panelContentTextColor:$textColor;
-$panelContentPadding:0.571em 1em;
+$panelContentPadding:0.0;
 $panelFooterBorder:1px solid #c8c8c8;
 $panelFooterBgColor:#ffffff;
 $panelFooterTextColor:$textColor;
