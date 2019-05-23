@@ -25,6 +25,7 @@ import { TableModule } from 'primeng/components/table/table';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { ContextMenuModule } from 'ngx-contextmenu';
+import { KeyboardShortcutsModule }     from 'ng-keyboard-shortcuts';
 //import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService }  from './in-memory-data.service';
 @NgModule({
@@ -46,7 +47,8 @@ import { ContextMenuModule } from 'ngx-contextmenu';
     TableModule,
     ListboxModule,
     ToolbarModule,
-    ContextMenuModule.forRoot()
+    ContextMenuModule.forRoot(),
+    KeyboardShortcutsModule.forRoot()
   ],
   declarations: [
     HomeComponent,
