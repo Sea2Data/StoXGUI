@@ -12,40 +12,63 @@
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.1.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>1.4.1.RELEASE</version>
+            <relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            <java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+            </dependency>
 
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.rosuda.REngine</groupId>
+                <artifactId>Rserve</artifactId>
+                <version>1.8.1</version>
+            </dependency>                 
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
 
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.codefx.maven.plugin</groupId>
+                    <artifactId>jdeps-maven-plugin</artifactId>
+                    <version>0.1</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>jdkinternals</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>                        
+            </plugins>
 	</build>
 
 
